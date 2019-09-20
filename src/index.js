@@ -20,26 +20,26 @@ class App extends React.Component {
     //   const screenPromise = navigator.media
     // }
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      const webCamPromise = navigator.mediaDevices
-        .getUserMedia({
-          audio: false,
-          video: {
-            facingMode: "user"
-          }
-        })
-        .then(stream => {
-          window.stream = stream;
-          this.videoRef.current.srcObject = stream;
-          return new Promise((resolve, reject) => {
-            this.videoRef.current.onloadedmetadata = () => {
-              resolve();
-            };
-          });
-        });
+      // const webCamPromise = navigator.mediaDevices
+      //   .getUserMedia({
+      //     audio: false,
+      //     video: {
+      //       facingMode: "user"
+      //     }
+      //   })
+      //   .then(stream => {
+      //     // window.stream = stream;
+      //     this.videoRef.current.srcObject = stream;
+      //     return new Promise((resolve, reject) => {
+      //       this.videoRef.current.onloadedmetadata = () => {
+      //         resolve();
+      //       };
+      //     });
+      //   });
       const screenPromise = navigator.mediaDevices
         .getDisplayMedia()
         .then(stream => {
-          window.stream = stream;
+          // window.stream = stream;
           this.videoRef.current.srcObject = stream;
           return new Promise((resolve, reject) => {
             this.videoRef.current.onloadedmetadata = () => {
